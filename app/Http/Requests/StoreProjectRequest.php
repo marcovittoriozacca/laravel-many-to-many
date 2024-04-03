@@ -27,7 +27,7 @@ class StoreProjectRequest extends FormRequest
             'type_id' => ['nullable', 'exists:types,id'],
             'link' => ['nullable'],
             'proj_thumb' => ['nullable', 'file', 'image', 'max:1000', 'mimes:jpg,jpeg,png,svg,webp,bmp,tif,tiff'],
-            'technologies' => ['exists:technologies,id'],
+            'technologies' => ['nullable', 'exists:technologies,id'],
         ];
     }
 
@@ -39,7 +39,6 @@ class StoreProjectRequest extends FormRequest
             'name.unique' => 'Questo nome è già stato utilizzato in precedenza',
             'description.required' => 'Il campo Descrizione è obbligatorio',
             'type_id.exists' => 'Questa tipologia non esiste/non è ammessa',
-            'technologies.exists' => 'Questa tecnologia non esiste/non è ammessa',
         ];
     }
 }

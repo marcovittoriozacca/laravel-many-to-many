@@ -53,6 +53,24 @@
                @enderror 
             </div>
 
+            {{-- technologies --}}
+            <div class="mb-3">
+                <label for="technologies" class="form-label">Tecnologie Utilizzate</label>
+                <select
+                multiple
+                    class="form-select"
+                    name="technologies[]"
+                    id="technologies"
+                >
+                    <option value="">Select one</option>
+                    @foreach ($technologies as $technology)
+                    <option value="{{ $technology->id }}">{{ $technology->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            
+
+
             <div class="mb-3">
                 <label for="link" class="form-label">Link al progetto</label>
                 <input type="text" class="form-control @error('link') is-invalid @enderror" name="link" id="link"
