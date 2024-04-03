@@ -16,7 +16,6 @@
                         @if ($project->type)
                             <p class="card-text fw-bold">{{ $project->type->name }}</p>
                         @endif
-
                         @forelse ($project->technology as $technology)
                             <span>{{ $technology->name }}@if ($loop->last). @else - @endif</span>
                         @empty

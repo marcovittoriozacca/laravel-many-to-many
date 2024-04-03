@@ -53,23 +53,28 @@
 
             {{-- technologies --}}
             <div class="mb-3">
-                <label for="technologies" class="form-label">Tecnologie Utilizzate</label>
-                <select
-                multiple
-                    class="form-select"
-                    name="technologies[]"
-                    id="technologies"
-                >
-                    <option value="">Select one</option>
+                <p class="mb-1">Tecnologie Utilizzate</p>
+                <div class="d-flex gap-3">
                     @foreach ($technologies as $technology)
-                    <option value="{{ $technology->id }}">{{ $technology->name }}</option>
+                    <div>
+                        <input
+                            class="form-check-input" 
+                            type="checkbox" 
+                            name="technologies[]" 
+                            id="{{ $technology->slug }}" 
+                            value="{{ $technology->id }}"
+                        >
+                        
+                        <label 
+                            class="form-label" 
+                            for="{{ $technology->slug }}">
+                            {{ $technology->name }}
+                        </label>
+                    </div>
                     @endforeach
-                </select>
+                </div>
             </div>
             
-
-            
-    
             <div class="mb-3">
                 <label for="link" class="form-label">Link al progetto</label>
                 <input type="text" class="form-control @error ('link') is-invalid @enderror" name="link" id="link" value="{{ old('link') }}"/>

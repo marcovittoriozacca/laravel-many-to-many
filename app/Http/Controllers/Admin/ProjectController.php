@@ -104,6 +104,8 @@ class ProjectController extends Controller
 
         if( $request->has('technologies') ){
             $project->technology()->sync($request->technologies);
+        }else{
+            $project->technology()->sync([]);
         }
 
 
