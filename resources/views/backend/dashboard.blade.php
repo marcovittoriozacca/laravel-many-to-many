@@ -10,6 +10,9 @@
         <div class="mb-3">
             <a class="btn btn-danger p-3" href="{{ route('types.index') }}">Tipologie</a>
         </div>
+        <div class="mb-3">
+            <a class="btn btn-danger p-3" href="{{ route('technologies.index') }}">Tecnologie</a>
+        </div>
         
     </div>
 </div>
