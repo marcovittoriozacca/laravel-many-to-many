@@ -29,7 +29,7 @@
                             <tr>
                                 <td>{{ $technology->id }}</td>
                                 <td>
-                                    <a class="text-danger" href="{{ route('types.show', $technology->slug) }}">
+                                    <a class="text-danger" href="{{ route('technologies.show', $technology->slug) }}">
                                         {{ $technology->name }}
                                     </a>
                                 </td>

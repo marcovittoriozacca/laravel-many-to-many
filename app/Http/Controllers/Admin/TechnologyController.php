@@ -40,7 +40,7 @@ class TechnologyController extends Controller
      */
     public function show(Technology $technology)
     {
-        //
+        return view('backend.technologies.show', compact('technology'));
     }
 
     /**
