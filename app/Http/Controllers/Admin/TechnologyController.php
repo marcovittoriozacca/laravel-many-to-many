@@ -78,6 +78,8 @@ class TechnologyController extends Controller
      */
     public function destroy(Technology $technology)
     {
-        //
+        $technology->project()->sync([]);
+        $technology->delete();
+        return redirect()->route('technologies.index');
     }
 }
