@@ -54,7 +54,7 @@ class TechnologyController extends Controller
      */
     public function edit(Technology $technology)
     {
-        //
+        return view('backend.technologies.edit', compact('technology'));
     }
 
     /**
@@ -62,7 +62,15 @@ class TechnologyController extends Controller
      */
     public function update(UpdateTechnologyRequest $request, Technology $technology)
     {
-        //
+        $validated_data = $request->validated();
+        $validated_data['slug'] = Str::slug($validated_data['name'], '-');
+
+        $technology->update($validated_data);
+
+        $technology->save();
+
+        return redirect()->route('technologies.index');
+
     }
 
     /**

@@ -35,20 +35,20 @@
                                 </td>
                                 <td>{{ $technology->slug }}</td>
                                 
-                                {{-- <td>
+                                <td>
                                     <div class="d-flex column-gap-2">
-                                        <a class="btn btn-warning" href="{{ route('types.edit', $type->slug) }}">
+                                        <a class="btn btn-warning" href="{{ route('technologies.edit', $technology->slug) }}">
                                             Modifica
                                         </a>
 
-                                        <button type="button" id="modal-btn" class="btn btn-danger" data-bs-toggle="modal"
+                                        {{-- <button type="button" id="modal-btn" class="btn btn-danger" data-bs-toggle="modal"
                                             data-slug="{{ $type->slug }}" data-path="types"
                                             data-bs-target="#deleteModal">
                                             Elimina
-                                        </button>
+                                        </button> --}}
                                     </div>
 
-                                </td> --}}
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
