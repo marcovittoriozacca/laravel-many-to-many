@@ -6,12 +6,12 @@
             <div class="text-center">
                 <h1>Ancora nessuna tipologia da gestire</h1>
                 <div class="container">
-                    {{-- <a class="btn btn-danger btn-lg my-4 w-100" href="{{ route('types.create') }}">Aggiungi una tipologia</a> --}}
+                    <a class="btn btn-danger btn-lg my-4 w-100" href="{{ route('technologies.create') }}">Aggiungi una tecnologia</a>
                 </div>
             </div>
         @else
             <div class="container">
-                {{-- <a class="btn btn-danger btn-lg my-4 w-100" href="{{ route('types.create') }}">Aggiungi una tipologia</a> --}}
+                <a class="btn btn-danger btn-lg my-4 w-100" href="{{ route('technologies.create') }}">Aggiungi una tecnologia</a>
             </div>
             <div class="table-responsive">
                 <table class="table table-striped">

@@ -11,7 +11,7 @@ class StoreTechnologyRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,15 @@ class StoreTechnologyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required', 'unique:technologies', 'max:150'],
+        ];
+    }
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Il campo Nome è obbligatorio',
+            'name.unique' => 'Il nome che hai scelto è già stato utilizzato per un altro record',
+            'name.max' => 'La lunghezza massima del Nome è di 150 caratteri',
         ];
     }
 }
