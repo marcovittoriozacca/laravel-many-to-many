@@ -21,6 +21,7 @@
                             <th scope="col" class="text-capitalize">nome progetto</th>
                             <th scope="col" class="text-capitalize">descrizione</th>
                             <th scope="col" class="text-capitalize">Tipologia</th>
+                            <th scope="col" class="text-capitalize">Tecnologie</th>
                             <th scope="col" class="text-capitalize">link progetto</th>
                             <th scope="col" class="text-capitalize">slug</th>
                             <th scope="col" class="text-capitalize">immagine</th>
@@ -42,6 +43,14 @@
                                     </p>
                                 </td>
                                 <td>{{ $project->type? $project->type->name : ''}} </td>
+                                
+                                <td>
+                                    @forelse ($project->technology as $technology)
+                                    <span>{{ $technology->name }}@if ($loop->last). @else - @endif</span>
+                                    @empty
+                                    @endforelse
+                                </td>
+
                                 <td>
                                     <a class="text-danger" href="{{ $project->link }}">
                                         {{ $project->link }}

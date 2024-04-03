@@ -119,6 +119,7 @@ class ProjectController extends Controller
             Storage::delete($project->proj_thumb);
         }
 
+        $project->technology()->sync([]);
         $project->delete();
         return redirect()->route('projects.index');
     }

@@ -12,9 +12,17 @@
                     <div class="card-body">
                         <h1 class="card-title">{{ $project->name }}</h1>
                         <p class="card-text">{{ $project->description }}</p>
+
                         @if ($project->type)
                             <p class="card-text fw-bold">{{ $project->type->name }}</p>
                         @endif
+
+                        @forelse ($project->technology as $technology)
+                            <span>{{ $technology->name }}@if ($loop->last). @else - @endif</span>
+                        @empty
+                        @endforelse
+                        
+                        <h5 class="mt-3">Link al progetto</h5>
                         <a class="text-danger" href="{{ $project->link }}">
                             {{ $project->link }}
                         </a>
