@@ -6,6 +6,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use App\Http\Controllers\Controller;
+use App\Models\Technology;
 use App\Models\Type;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -28,8 +29,9 @@ class ProjectController extends Controller
     public function create()
     {
         $types = Type::all();
+        $technologies = Technology::all();
 
-        return view('backend.projects.create', compact('types'));
+        return view('backend.projects.create', compact('types', 'technologies'));
     }
 
     /**
@@ -38,6 +40,7 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         $validated_data = $request->validated();
+        
         $validated_data['slug'] = Str::slug($validated_data['name'] ,'-');
         
         if(key_exists('proj_thumb' ,$validated_data)){
@@ -45,7 +48,11 @@ class ProjectController extends Controller
             $validated_data['proj_thumb'] = $img_path;
         }
 
-        Project::create($validated_data);
+        $new_project = Project::create($validated_data);
+
+        if( $request->has('technologies') ){
+            $new_project->technology()->attach($request->technologies);
+        }
 
         return redirect()->route('projects.index');
     }
