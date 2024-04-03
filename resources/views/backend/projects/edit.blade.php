@@ -59,7 +59,7 @@
                     @foreach ($technologies as $technology)
                     <div>
                         <input
-                            class="form-check-input" 
+                            class="form-check-input @error ('technologies') is-invalid @enderror" 
                             type="checkbox" 
                             name="technologies[]" 
                             id="{{ $technology->slug }}" 
@@ -77,6 +77,11 @@
                     </div>
                     @endforeach
                 </div>
+                @error ('technologies')
+                <div>
+                    <p class="text-danger">{{ $message }}</p>
+                </div>
+                @enderror
             </div>
             
 
