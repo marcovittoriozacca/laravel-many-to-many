@@ -1,0 +1,20 @@
+@import '~bootstrap/scss/bootstrap';
+
+.truncate {
+    width: 500px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.form-check-input:checked {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.form-check-input:focus {
+  border-color: #dc3545;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
